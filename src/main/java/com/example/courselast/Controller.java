@@ -69,21 +69,34 @@ public class Controller {
         });
 
         loginbutton.setOnAction(event -> {
-            loginbutton.getScene().getWindow().hide();
+            String email_text = emailtextfield.getText().trim();
+            String password_text = passwordfield.getText().trim();
 
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/com/example/courselast/main-window.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            if(!email_text.equals("") && !password_text.equals("")) {
+                userLogin(email_text, password_text);
+                loginbutton.getScene().getWindow().hide();
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/example/courselast/main-window.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                Parent root = fxmlLoader.getRoot();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
             }
-
-            Parent root = fxmlLoader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+            else {
+                System.out.println("Error");
+            }
         });
+    }
+
+    private void userLogin(String emailText, String passwordText) {
+
     }
 
 }

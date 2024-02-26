@@ -73,6 +73,8 @@ public class SignUpController {
     @FXML
     void initialize() {
         signupbutton2.setOnAction(event -> {
+            signUpNewUser();
+
             signupbutton2.getScene().getWindow().hide();
 
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -88,6 +90,21 @@ public class SignUpController {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
+    }
+
+    private void signUpNewUser() {
+        DatabaseHandler handler = new DatabaseHandler();
+
+        String email = emailtextfield.getText();
+        String password = passwordfield.getText();
+        String name = nametextfield.getText();
+        String surname = surnametextfield.getText();
+        String country = countrytextfield.getText();
+        String gender = "Male";
+
+        User user = new User(email, password, name, surname, country, gender);
+
+        handler.SignUpUser(user);
     }
 
 }
