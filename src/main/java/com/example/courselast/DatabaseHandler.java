@@ -1,4 +1,7 @@
 package com.example.courselast;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 public class DatabaseHandler extends Configs {
@@ -73,5 +76,28 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ObservableList<Item> getItemsList() throws SQLException, ClassNotFoundException {
+        ObservableList<Item> itemObservableList = FXCollections.observableArrayList();
+        String query = "SELECT * FROM " + Constants.INVENTORY_TABLE;
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+            ResultSet set = preparedStatement.executeQuery();
+
+            while (set.next()) {
+                String name = set.getString(Constants.INVENTORY_NAME);
+                int quantity = set.getInt(Constants.INVENTORY_QUANTITY);
+                double price = set.getDouble(Constants.INVENTORY_PRICE);
+                String description = set.getString(Constants.INVENTORY_DESCRIPTION);
+                String category = set.getString(Constants.INVENTORY_CATEGORY);
+
+                Item item = new Item(name, quantity, price, description, category);
+                itemObservableList.add(item);
+            }
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+        return itemObservableList;
     }
 }

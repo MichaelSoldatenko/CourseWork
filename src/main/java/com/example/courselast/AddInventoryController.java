@@ -1,11 +1,14 @@
 package com.example.courselast;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -73,6 +76,21 @@ public class AddInventoryController {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main-window.fxml"));
+        try {
+            Parent root = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        MainWindowController controller = fxmlLoader.getController();
+
+        try {
+            DatabaseHandler update_handler = new DatabaseHandler();
+            controller.updateItemsList(update_handler.getItemsList());
+        } catch (SQLException | ClassNotFoundException exception) {
+            exception.printStackTrace();
         }
     }
 }
