@@ -100,4 +100,40 @@ public class DatabaseHandler extends Configs {
         }
         return itemObservableList;
     }
+
+    public ObservableList<Item> searchItem (String query_text) throws SQLException, ClassNotFoundException {
+        ObservableList<Item> resultSearch = FXCollections.observableArrayList();
+        String query = "SELECT * FROM " + Constants.INVENTORY_TABLE + " WHERE " + Constants.INVENTORY_NAME + " LIKE ? OR " + Constants.INVENTORY_DESCRIPTION + " LIKE ? OR " + Constants.INVENTORY_CATEGORY + " LIKE ?";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+            preparedStatement.setString(1, "%" + query_text + "%");
+            preparedStatement.setString(2, "%" + query_text + "%");
+            preparedStatement.setString(3, "%" + query_text + "%");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Item item = new Item(resultSet.getString("inventoryname"), resultSet.getInt("inventoryquantity"), resultSet.getDouble("inventoryprice"), resultSet.getString("inventorydescription"), resultSet.getString("inventorycategory"));
+                resultSearch.add(item);
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            throw exception;
+        }
+
+        return resultSearch;
+    }
+
+    public void deleteItem (String name) throws SQLException, ClassNotFoundException {
+        String delete = "DELETE FROM " + Constants.INVENTORY_TABLE + " WHERE " + Constants.INVENTORY_NAME + " = ?";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(delete);
+            preparedStatement.setString(1, name);
+            preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            throw exception;
+        }
+    }
 }

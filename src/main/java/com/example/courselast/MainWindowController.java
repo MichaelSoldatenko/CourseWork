@@ -28,6 +28,12 @@ public class MainWindowController {
     private Button addinventorybutton;
 
     @FXML
+    private Button refreshbutton;
+
+    @FXML
+    private Button deletebutton;
+
+    @FXML
     private AnchorPane mainwindowanchorpane;
 
     @FXML
@@ -62,6 +68,10 @@ public class MainWindowController {
 
     @FXML
     void initialize() {
+       refreshbutton.setOnAction(this::refreshWindow);
+       searchtextfield.setOnAction(this::searchMethod);
+       deletebutton.setOnAction(this::deleteItemFromTable);
+
        addinventorybutton.setOnAction(event -> {
 
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -98,5 +108,59 @@ public class MainWindowController {
 
     public void updateItemsList(ObservableList<Item> itemObservableList){
         itemstableview.setItems(itemObservableList);
+    }
+
+    public void refreshWindow (ActionEvent event) {
+        DatabaseHandler handler = new DatabaseHandler();
+        try {
+            itemObservableList = handler.getItemsList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        itemstableview.setItems(itemObservableList);
+    }
+
+    public void searchMethod (ActionEvent event) {
+        String query_text = searchtextfield.getText();
+        if (!query_text.isEmpty()) {
+            DatabaseHandler handler = new DatabaseHandler();
+            ObservableList<Item> search = null;
+            try {
+                search = handler.searchItem(query_text);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            itemstableview.setItems(search);
+        } else {
+            DatabaseHandler handler = new DatabaseHandler();
+            try {
+                itemObservableList = handler.getItemsList();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            itemstableview.setItems(itemObservableList);
+        }
+    }
+
+    public void deleteItemFromTable (ActionEvent event) {
+        Item selected = itemstableview.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            System.out.println("Nothing selected!");
+        }
+        String name = selected.getName();
+        DatabaseHandler handler = new DatabaseHandler();
+        try {
+            handler.deleteItem(name);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

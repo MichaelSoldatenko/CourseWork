@@ -15,9 +15,6 @@ public class Item {
         this.category = category;
     }
 
-    public Item() {
-    }
-
     public String getName() {
         return name;
     }

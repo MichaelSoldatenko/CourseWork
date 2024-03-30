@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="backgrounganchorpane" prefHeight="900.0" prefWidth="700.0" styleClass="backgroundColour" stylesheets="@gradient.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courselast.AddInventoryController">
+<AnchorPane fx:id="backgrounganchorpane" prefHeight="800.0" prefWidth="700.0" styleClass="backgroundColour" stylesheets="@gradient.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courselast.AddInventoryController">
    <children>
       <AnchorPane fx:id="frontgroundanchorpane" layoutX="75.0" layoutY="165.0" prefHeight="570.0" prefWidth="550.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="65.0">
          <children>
@@ -15,12 +15,55 @@
                   <Font name="Arial Bold" size="35.0" />
                </font>
             </Label>
-            <TextField fx:id="inventoryname" layoutX="126.0" layoutY="127.0" />
-            <TextField fx:id="inventoryquantity" layoutX="119.0" layoutY="193.0" />
-            <TextField fx:id="inventoryprice" layoutX="127.0" layoutY="260.0" />
-            <TextField fx:id="inventorydescription" layoutX="127.0" layoutY="320.0" />
-            <TextField fx:id="inventorycategory" layoutX="137.0" layoutY="385.0" />
-            <Button fx:id="addbutton" onAction="#addButton" layoutX="223.0" layoutY="512.0" mnemonicParsing="false" text="Button" />
+            <TextField fx:id="inventoryname" layoutX="126.0" layoutY="127.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's name" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="140.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="inventoryquantity" layoutX="119.0" layoutY="193.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's count" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="220.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="inventoryprice" layoutX="127.0" layoutY="260.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's price" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="300.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="inventorydescription" layoutX="127.0" layoutY="320.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's description" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="380.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="inventorycategory" layoutX="137.0" layoutY="385.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's category" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="460.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></TextField>
+            <Button fx:id="addbutton" layoutX="179.0" layoutY="499.0" mnemonicParsing="false" onAction="#addButton" prefHeight="42.0" prefWidth="142.0" style="-fx-background-radius: 30; -fx-background-color: #FF99FF;" text="Add" textFill="WHITE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font></Button>
+            <Label fx:id="itemnamelabel" layoutX="90.0" layoutY="110.0" text="Name" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="115.0">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="itemcountlabel" layoutX="84.0" layoutY="194.0" text="Count" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="195.0">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="itempricelabel" layoutX="76.0" layoutY="262.0" text="Price" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="275.0">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="itemdescriptionlabel" layoutX="85.0" layoutY="350.0" text="Description" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="355.0">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="itemcategorylabel" layoutX="85.0" layoutY="430.0" text="Category" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="435.0">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

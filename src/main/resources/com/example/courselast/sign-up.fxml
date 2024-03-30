@@ -46,12 +46,12 @@
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <PasswordField fx:id="confirmpasswordfield" layoutX="80.0" layoutY="306.0" prefHeight="42.0" prefWidth="390.0" promptText="Confirm your password" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="300.0">
+            <PasswordField fx:id="confirmpasswordfield" layoutX="80.0" layoutY="306.0" prefHeight="42.0" prefWidth="390.0" promptText="Confirm your password" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="300.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="nametextfield" layoutX="79.0" layoutY="385.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your name" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="380.0">
+            <TextField fx:id="nametextfield" layoutX="79.0" layoutY="385.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your name" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="380.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -71,12 +71,12 @@
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="surnametextfield" layoutX="79.0" layoutY="472.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your surname" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="460.0">
+            <TextField fx:id="surnametextfield" layoutX="79.0" layoutY="472.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your surname" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="460.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="countrytextfield" layoutX="41.0" layoutY="542.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your country" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="540.0">
+            <TextField fx:id="countrytextfield" layoutX="41.0" layoutY="542.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your country" style="-fx-border-color: #FAFAFA;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="540.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>

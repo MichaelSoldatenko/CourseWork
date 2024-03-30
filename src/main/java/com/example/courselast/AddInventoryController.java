@@ -50,6 +50,21 @@ public class AddInventoryController {
     private TextField inventoryquantity;
 
     @FXML
+    private Label itemcategorylabel;
+
+    @FXML
+    private Label itemcountlabel;
+
+    @FXML
+    private Label itemdescriptionlabel;
+
+    @FXML
+    private Label itemnamelabel;
+
+    @FXML
+    private Label itempricelabel;
+
+    @FXML
     void initialize() {
 
     }
