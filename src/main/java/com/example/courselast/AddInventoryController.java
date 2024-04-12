@@ -107,5 +107,6 @@ public class AddInventoryController {
         } catch (SQLException | ClassNotFoundException exception) {
             exception.printStackTrace();
         }
+        addbutton.getScene().getWindow().hide();
     }
 }

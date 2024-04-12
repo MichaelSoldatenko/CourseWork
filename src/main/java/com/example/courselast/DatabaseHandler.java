@@ -136,4 +136,16 @@ public class DatabaseHandler extends Configs {
             throw exception;
         }
     }
+
+    public void updateItem(Item item) throws SQLException, ClassNotFoundException {
+        String update = "UPDATE " + Constants.INVENTORY_TABLE + " SET " + Constants.INVENTORY_QUANTITY + " =?, " + Constants.INVENTORY_PRICE + " =?, " + Constants.INVENTORY_DESCRIPTION + " =?, " + Constants.INVENTORY_CATEGORY + " =? " + "WHERE " + Constants.INVENTORY_NAME + " =?";
+        try (PreparedStatement preparedStatement = getDbConnection().prepareStatement(update)) {
+            preparedStatement.setInt(1, item.getQuantity());
+            preparedStatement.setDouble(2, item.getPrice());
+            preparedStatement.setString(3, item.getDescription());
+            preparedStatement.setString(4, item.getCategory());
+            preparedStatement.setString(5, item.getName());
+            preparedStatement.executeUpdate();
+        }
+    }
 }

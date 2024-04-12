@@ -34,6 +34,12 @@ public class MainWindowController {
     private Button deletebutton;
 
     @FXML
+    private Button changebutton;
+
+    @FXML
+    private Button logoutbutton;
+
+    @FXML
     private AnchorPane mainwindowanchorpane;
 
     @FXML
@@ -71,6 +77,24 @@ public class MainWindowController {
        refreshbutton.setOnAction(this::refreshWindow);
        searchtextfield.setOnAction(this::searchMethod);
        deletebutton.setOnAction(this::deleteItemFromTable);
+       changebutton.setOnAction(this::openChangeWindow);
+
+       logoutbutton.setOnAction(event -> {
+           logoutbutton.getScene().getWindow().hide();
+
+           FXMLLoader fxmlLoader = new FXMLLoader();
+           fxmlLoader.setLocation(getClass().getResource("/com/example/courselast/hello-view.fxml"));
+           try {
+               fxmlLoader.load();
+           } catch (IOException e) {
+               throw new RuntimeException(e);
+           }
+
+           Parent root = fxmlLoader.getRoot();
+           Stage stage = new Stage();
+           stage.setScene(new Scene(root));
+           stage.show();
+       });
 
        addinventorybutton.setOnAction(event -> {
 
@@ -87,6 +111,7 @@ public class MainWindowController {
             stage.setScene(new Scene(root));
             stage.show();
         });
+
        try {
            DatabaseHandler set_handler = new DatabaseHandler();
            itemObservableList = set_handler.getItemsList();
@@ -162,5 +187,29 @@ public class MainWindowController {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void openChangeWindow(ActionEvent event) {
+        Item selected = itemstableview.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            System.out.println("Nothing selected!");
+            return;
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/com/example/courselast/change-inventory.fxml"));
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        ChangeInventoryController controller = fxmlLoader.getController();
+        controller.setNewData(selected);
+
+        Parent root = fxmlLoader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
