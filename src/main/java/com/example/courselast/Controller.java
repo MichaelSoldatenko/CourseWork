@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -66,20 +67,6 @@ public class Controller {
 
             if(!email_text.equals("") && !password_text.equals("")) {
                 userLogin(email_text, password_text);
-                loginbutton.getScene().getWindow().hide();
-
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/com/example/courselast/main-window.fxml"));
-                try {
-                    fxmlLoader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-                Parent root = fxmlLoader.getRoot();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.showAndWait();
             }
             else {
                 System.out.println("Error");
@@ -111,12 +98,22 @@ public class Controller {
     }
 
     public void newScene(String window) {
+        Screen screen = Screen.getPrimary();
+        double screenWidth = screen.getBounds().getWidth();
+        double screenHeight = screen.getBounds().getHeight();
+
         signupbutton.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource(window));
         try {
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
+
+            if (window == "/com/example/courselast/main-window.fxml") {
+                stage.setWidth(screenWidth);
+                stage.setHeight(screenHeight);
+            }
+
             stage.setScene(new Scene(root));
             stage.showAndWait();
         } catch (IOException e) {

@@ -74,6 +74,9 @@ public class MainWindowController {
 
     @FXML
     void initialize() {
+        mainwindowanchorpane.prefWidthProperty().bind(mainwindowscrollpane.widthProperty());
+        uppinkanchorpane.prefWidthProperty().bind(mainwindowscrollpane.widthProperty());
+
        refreshbutton.setOnAction(this::refreshWindow);
        searchtextfield.setOnAction(this::searchMethod);
        deletebutton.setOnAction(this::deleteItemFromTable);
@@ -129,6 +132,7 @@ public class MainWindowController {
        pricecolumn.setCellValueFactory(new PropertyValueFactory<>("price"));
        descriptioncolumn.setCellValueFactory(new PropertyValueFactory<>("description"));
        categorycolumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+
     }
 
     public void updateItemsList(ObservableList<Item> itemObservableList){

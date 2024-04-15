@@ -21,7 +21,7 @@ public class DatabaseHandler extends Configs {
     }
 
     public void SignUpUser(User user) {
-            String insert = "INSERT INTO " + Constants.USER_TABLE + "(" + Constants.USER_EMAIL + "," + Constants.USER_SURNAME + "," + Constants.USER_NAME + "," + Constants.USER_PASSWORD + "," + Constants.USER_COUNTRY + "," + Constants.USER_GENDER + ")" + "VALUES(?,?,?,?,?,?)";
+            String insert = "INSERT INTO " + Constants.USER_TABLE + "(" + Constants.USER_EMAIL + "," + Constants.USER_SURNAME + "," + Constants.USER_NAME + "," + Constants.USER_PASSWORD + "," + Constants.USER_COUNTRY + ")" + "VALUES(?,?,?,?,?)";
 
         try {
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
@@ -30,7 +30,6 @@ public class DatabaseHandler extends Configs {
             preparedStatement.setString(3, user.getName());
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, user.getCountry());
-            preparedStatement.setString(6, user.getGender());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

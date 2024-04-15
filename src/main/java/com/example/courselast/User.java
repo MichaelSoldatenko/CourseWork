@@ -6,15 +6,13 @@ public class User {
     private String name;
     private String surname;
     private String country;
-    private String gender;
 
-    public User(String email, String password, String name, String surname, String country, String gender) {
+    public User(String email, String password, String name, String surname, String country) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.surname = surname;
         this.country = country;
-        this.gender = gender;
     }
 
     public User() {}
@@ -57,13 +55,5 @@ public class User {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 }

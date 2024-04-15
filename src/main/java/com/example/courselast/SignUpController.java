@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class SignUpController {
@@ -72,6 +73,10 @@ public class SignUpController {
 
     @FXML
     void initialize() {
+        Screen screen = Screen.getPrimary();
+        double screenWidth = screen.getBounds().getWidth();
+        double screenHeight = screen.getBounds().getHeight();
+
         signupbutton2.setOnAction(event -> {
             signUpNewUser();
 
@@ -87,6 +92,10 @@ public class SignUpController {
 
             Parent root = fxmlLoader.getRoot();
             Stage stage = new Stage();
+
+            stage.setWidth(screenWidth);
+            stage.setHeight(screenHeight);
+
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
@@ -100,9 +109,8 @@ public class SignUpController {
         String name = nametextfield.getText();
         String surname = surnametextfield.getText();
         String country = countrytextfield.getText();
-        String gender = "Male";
 
-        User user = new User(email, password, name, surname, country, gender);
+        User user = new User(email, password, name, surname, country);
 
         handler.SignUpUser(user);
     }
