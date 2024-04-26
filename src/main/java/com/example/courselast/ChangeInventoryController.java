@@ -1,5 +1,6 @@
 package com.example.courselast;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -7,7 +8,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
 public class ChangeInventoryController {
 
@@ -60,8 +64,25 @@ public class ChangeInventoryController {
     private Button savebutton;
 
     @FXML
+    private ImageView inventoryimage;
+
+    @FXML
+    private Button uploadimagebutton;
+
+    private MainWindowController mainWindowController;
+
+    public void setMainWindowController(MainWindowController controller) {
+        this.mainWindowController = controller;
+    }
+
+    /*public void updateImageInMain(Image newImage) {
+        mainWindowController.updateImage(newImage);
+    }*/
+
+    @FXML
     void initialize() {
         savebutton.setOnAction(event -> saveChangedItem());
+        uploadimagebutton.setOnAction(event -> uploadImage());
     }
     public void saveChangedItem () {
         String name = inventoryname.getText();
@@ -70,7 +91,11 @@ public class ChangeInventoryController {
         String description = inventorydescription.getText();
         String category = inventorycategory.getText();
 
+        Image image = inventoryimage.getImage();
+        //byte[] imageData = imageDataFromImageView(inventoryimage);
+
         Item item = new Item(name, quantity, price, description, category);
+        //item.setImage(image);
 
         DatabaseHandler handler = new DatabaseHandler();
         try {
@@ -89,5 +114,17 @@ public class ChangeInventoryController {
         inventoryprice.setText(String.valueOf(item.getPrice()));
         inventorydescription.setText(item.getDescription());
         inventorycategory.setText(item.getCategory());
+        inventoryimage.setImage(item.getImage());
+    }
+
+    @FXML
+    void uploadImage () {
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Оберіть зображення товару");
+        File file = chooser.showOpenDialog(uploadimagebutton.getScene().getWindow());
+        if (file != null) {
+            Image image = new Image(file.toURI().toString());
+            inventoryimage.setImage(image);
+        }
     }
 }

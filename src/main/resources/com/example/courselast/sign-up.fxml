@@ -9,78 +9,83 @@
 
 <AnchorPane fx:id="anchorbackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" styleClass="backgroundColour" stylesheets="@gradient.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courselast.SignUpController">
     <children>
-        <AnchorPane fx:id="anchorfrontground" layoutX="150.0" layoutY="27.0" prefHeight="570.0" prefWidth="550.0" style="-fx-background-color: #c4dfe6; -fx-background-radius: 30;" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="anchorfrontground" layoutX="150.0" layoutY="27.0" prefHeight="695.0" prefWidth="550.0" style="-fx-background-color: #c4dfe6; -fx-background-radius: 30;" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="50.0">
             <children>
-                <Label fx:id="signuplabel" alignment="CENTER" layoutX="183.0" layoutY="39.0" prefHeight="42.0" prefWidth="135.0" text="Sign Up" textAlignment="CENTER" textFill="#07575b" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="30.0">
+                <Label fx:id="signuplabel" alignment="CENTER" layoutX="170.0" layoutY="30.0" prefHeight="42.0" prefWidth="210.0" text="Реєстрація" textAlignment="CENTER" textFill="#07575b" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="30.0">
                     <font>
                         <Font name="Arial Bold" size="35.0" />
                     </font>
                 </Label>
-                <TextField fx:id="emailtextfield" layoutX="100.0" layoutY="142.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your email" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="130.0">
+                <TextField fx:id="emailtextfield" layoutX="100.0" layoutY="142.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть свій Email" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="130.0">
                     <font>
                         <Font name="Arial" size="14.0" />
                     </font>
                 </TextField>
-                <PasswordField fx:id="passwordfield" layoutX="100.0" layoutY="220.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your password" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="210.0">
+                <PasswordField fx:id="passwordfield" layoutX="100.0" layoutY="220.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть пароль" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="210.0">
                     <font>
                         <Font name="Arial" size="14.0" />
                     </font>
                 </PasswordField>
-                <Button fx:id="signupbutton2" layoutX="179.0" layoutY="499.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="142.0" style="-fx-background-radius: 30; -fx-background-color: #07575b;" text="Sign Up" textFill="#c4dfe6" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0">
+                <Button fx:id="signupbutton2" layoutX="180.0" layoutY="614.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="142.0" style="-fx-background-radius: 30; -fx-background-color: #07575b;" text="Зареєструватися" textFill="#c4dfe6" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="614.0">
                     <font>
                         <Font name="Arial Bold" size="16.0" />
                     </font>
                 </Button>
-                <Label fx:id="emaillabel" layoutX="100.0" layoutY="118.0" prefHeight="24.0" prefWidth="42.0" text="Email" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="105.0">
+                <Label fx:id="emaillabel" layoutX="100.0" layoutY="118.0" prefHeight="24.0" prefWidth="42.0" text="Email" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="105.0">
                     <font>
                         <Font name="Arial Bold" size="13.0" />
                     </font>
                 </Label>
-                <Label fx:id="passwordlabel" layoutX="100.0" layoutY="196.0" prefHeight="24.0" prefWidth="70.0" text="Password" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="185.0">
+                <Label fx:id="passwordlabel" layoutX="100.0" layoutY="196.0" prefHeight="24.0" prefWidth="70.0" text="Пароль" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="170.39999999999998" AnchorPane.topAnchor="185.0">
                     <font>
                         <Font name="Arial Bold" size="13.0" />
                     </font>
                 </Label>
-            <Label fx:id="confirmpasswordlabel" layoutX="80.0" layoutY="292.0" text="Confirming Password" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="265.0">
+            <Label fx:id="confirmpasswordlabel" layoutX="80.0" layoutY="292.0" text="Підтвердження паролю" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="170.39999999999998" AnchorPane.topAnchor="265.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <PasswordField fx:id="confirmpasswordfield" layoutX="80.0" layoutY="306.0" prefHeight="42.0" prefWidth="390.0" promptText="Confirm your password" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="290.0">
+            <PasswordField fx:id="confirmpasswordfield" layoutX="80.0" layoutY="306.0" prefHeight="42.0" prefWidth="390.0" promptText="Підтвердіть пароль" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="290.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="nametextfield" layoutX="79.0" layoutY="385.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your name" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="370.0">
+            <TextField fx:id="nametextfield" layoutX="79.0" layoutY="385.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть ваше ім'я" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="370.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </TextField>
-            <Label fx:id="namelabel" layoutX="79.0" layoutY="361.0" prefHeight="24.0" prefWidth="42.0" text="Name" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="345.0">
+            <Label fx:id="namelabel" layoutX="79.0" layoutY="361.0" prefHeight="24.0" prefWidth="42.0" text="Ім'я" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="170.39999999999998" AnchorPane.topAnchor="345.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="surnamelabel" layoutX="80.0" layoutY="437.0" prefHeight="24.0" prefWidth="70.0" text="Surname" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="425.0">
+            <Label fx:id="surnamelabel" layoutX="80.0" layoutY="437.0" prefHeight="24.0" prefWidth="70.0" text="Прізвище" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="170.39999999999998" AnchorPane.topAnchor="425.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="countrylabel" layoutX="79.0" layoutY="531.0" text="Country" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="505.0">
+            <Label fx:id="countrylabel" layoutX="79.0" layoutY="531.0" text="Країна" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="505.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="surnametextfield" layoutX="79.0" layoutY="472.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your surname" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="450.0">
+            <TextField fx:id="surnametextfield" layoutX="79.0" layoutY="472.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть ваше прізвище" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="450.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="countrytextfield" layoutX="41.0" layoutY="542.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter your country" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="530.0">
+            <TextField fx:id="countrytextfield" layoutX="41.0" layoutY="542.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть країну" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #07575b;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="530.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </TextField>
+            <Button fx:id="backtologinbutton" layoutX="26.0" layoutY="30.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #07575b; -fx-background-radius: 30;" text="&lt;" textFill="#c4dfe6" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="30.0">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </children>

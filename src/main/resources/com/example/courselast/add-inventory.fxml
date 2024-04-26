@@ -1,69 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane fx:id="backgrounganchorpane" prefHeight="800.0" prefWidth="700.0" styleClass="backgroundColour" stylesheets="@gradient.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courselast.AddInventoryController">
    <children>
-      <AnchorPane fx:id="frontgroundanchorpane" layoutX="75.0" layoutY="165.0" prefHeight="570.0" prefWidth="550.0" style="-fx-background-color: #c4dfe6; -fx-background-radius: 30;" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="65.0">
+      <AnchorPane fx:id="frontgroundanchorpane" layoutX="75.0" layoutY="165.0" prefHeight="683.0" prefWidth="550.0" style="-fx-background-color: #c4dfe6; -fx-background-radius: 30;" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="65.0">
          <children>
-            <Label fx:id="addinventorylabel" alignment="CENTER" layoutX="119.0" layoutY="46.0" prefHeight="42.0" prefWidth="346.0" text="Add New Inventory" textAlignment="CENTER" textFill="#07575b" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="40.0">
+            <Label fx:id="addinventorylabel" alignment="CENTER" layoutX="119.0" layoutY="46.0" prefHeight="42.0" prefWidth="346.0" text="Додати інвентар" textAlignment="CENTER" textFill="#07575b" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="40.0">
                <font>
                   <Font name="Arial Bold" size="35.0" />
                </font>
             </Label>
-            <TextField fx:id="inventoryname" layoutX="126.0" layoutY="127.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's name" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="140.0">
+            <TextField fx:id="inventoryname" layoutX="126.0" layoutY="127.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть назву товару" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="140.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font></TextField>
-            <TextField fx:id="inventoryquantity" layoutX="119.0" layoutY="193.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's count" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="220.0">
+            <TextField fx:id="inventoryquantity" layoutX="119.0" layoutY="193.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть кількість товару" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="220.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font></TextField>
-            <TextField fx:id="inventoryprice" layoutX="127.0" layoutY="260.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's price" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="300.0">
+            <TextField fx:id="inventoryprice" layoutX="127.0" layoutY="260.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть ціну товару" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="300.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font></TextField>
-            <TextField fx:id="inventorydescription" layoutX="127.0" layoutY="320.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's description" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="380.0">
+            <TextField fx:id="inventorydescription" layoutX="127.0" layoutY="320.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть опис товару" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="380.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font></TextField>
-            <TextField fx:id="inventorycategory" layoutX="137.0" layoutY="385.0" prefHeight="42.0" prefWidth="390.0" promptText="Enter item's category" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="460.0">
+            <TextField fx:id="inventorycategory" layoutX="137.0" layoutY="385.0" prefHeight="42.0" prefWidth="390.0" promptText="Введіть категорію товару" style="-fx-border-color: #07575b; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="460.0">
                <font>
                   <Font name="Arial" size="14.0" />
                </font></TextField>
-            <Button fx:id="addbutton" layoutX="179.0" layoutY="499.0" mnemonicParsing="false" onAction="#addButton" prefHeight="42.0" prefWidth="142.0" style="-fx-background-radius: 30; -fx-background-color: #07575b;" text="Add" textFill="#c4dfe6" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0">
+            <Button fx:id="addbutton" layoutX="345.0" layoutY="602.0" mnemonicParsing="false" onAction="#addButton" prefHeight="42.0" prefWidth="142.0" style="-fx-background-radius: 30; -fx-background-color: #07575b;" text="Додати" textFill="#c4dfe6" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="602.0">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font></Button>
-            <Label fx:id="itemnamelabel" layoutX="90.0" layoutY="110.0" text="Name" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="115.0">
+            <Button fx:id="uploadimagebutton" layoutX="322.0" layoutY="525.0" mnemonicParsing="false" onAction="#chooseImage" prefHeight="42.0" prefWidth="142.0" style="-fx-background-radius: 30; -fx-background-color: #07575b;" text="Завантажити зображення" textFill="#c4dfe6" AnchorPane.leftAnchor="322.0" AnchorPane.rightAnchor="38.799999999999955" AnchorPane.topAnchor="525.0">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font></Button>
+            <Label fx:id="itemnamelabel" layoutX="90.0" layoutY="110.0" text="Назва" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="90.39999999999998" AnchorPane.topAnchor="115.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="itemcountlabel" layoutX="84.0" layoutY="194.0" text="Count" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="195.0">
+            <Label fx:id="itemcountlabel" layoutX="84.0" layoutY="194.0" text="Кількість" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="409.5999999999999" AnchorPane.topAnchor="195.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="itempricelabel" layoutX="76.0" layoutY="262.0" text="Price" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="275.0">
+            <Label fx:id="itempricelabel" layoutX="76.0" layoutY="262.0" text="Ціна" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="409.6" AnchorPane.topAnchor="275.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="itemdescriptionlabel" layoutX="85.0" layoutY="350.0" text="Description" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="355.0">
+            <Label fx:id="itemdescriptionlabel" layoutX="85.0" layoutY="350.0" text="Опис" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="435.9999999999999" AnchorPane.topAnchor="355.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="itemcategorylabel" layoutX="85.0" layoutY="430.0" text="Category" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="435.0">
+            <Label fx:id="itemcategorylabel" layoutX="85.0" layoutY="430.0" prefHeight="16.0" prefWidth="66.0" text="Категорія" textFill="#07575b" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="404.0" AnchorPane.topAnchor="435.0">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
+            <ImageView fx:id="imageview" fitHeight="200.0" fitWidth="200.0" layoutX="54.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </children>

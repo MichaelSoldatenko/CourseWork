@@ -3,6 +3,8 @@ package com.example.courselast;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -63,6 +65,9 @@ public class SignUpController {
     private Button signupbutton2;
 
     @FXML
+    private Button backtologinbutton;
+
+    @FXML
     private Label signuplabel;
 
     @FXML
@@ -73,6 +78,8 @@ public class SignUpController {
 
     @FXML
     void initialize() {
+        backtologinbutton.setOnAction(this::backToLogin);
+
         Screen screen = Screen.getPrimary();
         double screenWidth = screen.getBounds().getWidth();
         double screenHeight = screen.getBounds().getHeight();
@@ -101,6 +108,22 @@ public class SignUpController {
         });
     }
 
+    private void backToLogin(ActionEvent event) {
+        backtologinbutton.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/com/example/courselast/hello-view.fxml"));
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Parent root = fxmlLoader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     private void signUpNewUser() {
         DatabaseHandler handler = new DatabaseHandler();
 
@@ -114,5 +137,4 @@ public class SignUpController {
 
         handler.SignUpUser(user);
     }
-
 }

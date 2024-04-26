@@ -1,5 +1,6 @@
 package com.example.courselast;
 
+
 public class Constants {
     public static final String USER_TABLE = "users";
     public static final String USER_ID = "idusers";
@@ -15,4 +16,5 @@ public class Constants {
     public static final String INVENTORY_PRICE = "inventoryprice";
     public static final String INVENTORY_DESCRIPTION = "inventorydescription";
     public static final String INVENTORY_CATEGORY = "inventorycategory";
+    public static final String INVENTORY_IMAGE = "inventoryimage";
 }
