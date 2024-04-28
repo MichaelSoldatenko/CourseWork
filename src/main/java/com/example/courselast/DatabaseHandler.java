@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -191,5 +192,21 @@ public class DatabaseHandler extends Configs {
             preparedStatement.setString(5, item.getName());
             preparedStatement.executeUpdate();
         }
+    }
+
+    public Image getItemImage(String itemName) throws SQLException, ClassNotFoundException {
+        String query = "SELECT " + Constants.INVENTORY_IMAGE + " FROM " + Constants.INVENTORY_TABLE + " WHERE " + Constants.INVENTORY_NAME + " = ?";
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+            preparedStatement.setString(1, itemName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                byte[] imageData = resultSet.getBytes(Constants.INVENTORY_IMAGE);
+                return new Image(new ByteArrayInputStream(imageData));
+            }
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+        return null;
     }
 }

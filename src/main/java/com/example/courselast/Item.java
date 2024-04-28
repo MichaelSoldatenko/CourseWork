@@ -23,14 +23,28 @@ public class Item {
         this.category = category;
     }
 
+    public Item(Item other) {
+        this.name = other.getName();
+        this.quantity = other.getQuantity();
+        this.price = other.getPrice();
+        this.description = other.getDescription();
+        this.category = other.getCategory();
+        this.image = other.getImage();
+    }
 
     public Image getImage() { return image; }
 
-
     public void setImage(byte[] imageData) {
-        this.image = new Image(new ByteArrayInputStream(imageData));
+        try {
+            this.image = new Image(new ByteArrayInputStream(imageData));
+        } catch (Exception exception) {
+            System.out.println("Error occurred while setting image: " + exception.getMessage());
+        }
     }
 
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
     public String getName() {
         return name;

@@ -6,8 +6,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.HashMap;
+import java.util.Map;
 
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -102,8 +105,10 @@ public class MainWindowController {
 
 
     private ObservableList<Item> itemObservableList;
+
     private ListView<Item> itemListView;
 
+    private Map<String, Image> previousImages = new HashMap<>();
 
     @FXML
     void initialize() {
@@ -180,8 +185,8 @@ public class MainWindowController {
         imagecolumn.setCellFactory(param -> new TableCell<>() {
             private final ImageView imageView = new ImageView();
             {
-                imageView.setFitHeight(50);
-                imageView.setFitWidth(50);
+                imageView.setFitHeight(80);
+                imageView.setFitWidth(80);
             }
 
             @Override
@@ -208,13 +213,29 @@ public class MainWindowController {
     public void refreshWindow (ActionEvent event) {
         DatabaseHandler handler = new DatabaseHandler();
         try {
-            itemObservableList = handler.getItemsList();
+            ObservableList<Item> updatedItemList = handler.getItemsList();
+
+            for (Item item : updatedItemList) {
+                Image currentImage = item.getImage();
+                if (currentImage != null) {
+                    previousImages.put(item.getName(), currentImage);
+                }
+            }
+
+            itemObservableList.setAll(updatedItemList);
+
+            for (Item item : updatedItemList) {
+                Image previousImage = previousImages.get(item.getName());
+                if (previousImage != null) {
+                    item.setImage(previousImage);
+                }
+            }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        itemstableview.setItems(itemObservableList);
     }
 
 
@@ -225,11 +246,16 @@ public class MainWindowController {
             ObservableList<Item> search = null;
             try {
                 search = handler.searchItem(query_text);
+                for (Item item : search) {
+                    Image image = handler.getItemImage(item.getName());
+                    item.setImage(image);
+                }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
+
             itemstableview.setItems(search);
         } else {
             DatabaseHandler handler = new DatabaseHandler();
@@ -289,25 +315,4 @@ public class MainWindowController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
-    /*public void updateImage(Image newImage) {
-        Item selected = itemstableview.getSelectionModel().getSelectedItem();
-        if (selected != null) {
-            byte[] imageData = extractImageData(newImage);
-            selected.setImage(imageData);
-            itemstableview.refresh();
-        }
-    }*/
-
-    /*private byte[] extractImageData(Image newImage) {
-        int width = (int) newImage.getWidth();
-        int height = (int) newImage.getHeight();
-        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-        SwingFXUtils.fromFXImage(newImage, bufferedImage);
-
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        try {
-            ImageIO.write(buf)
-        }
-    }*/
 }
