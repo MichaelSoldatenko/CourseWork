@@ -2,7 +2,7 @@ package com.example.courselast;
 
 
 import javafx.scene.image.Image;
-
+import java.util.Random;
 import java.io.ByteArrayInputStream;
 
 
@@ -13,7 +13,6 @@ public class Item {
     private String description;
     private String category;
     private Image image;
-
 
     public Item(String name, int quantity, double price, String description, String category) {
         this.name = name;
@@ -90,11 +89,9 @@ public class Item {
         return category;
     }
 
-
     public void setCategory(String category) {
         this.category = category;
     }
-
 
     @Override
     public String toString() {
@@ -103,7 +100,7 @@ public class Item {
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
+                ", category='" + category +
                 '}';
     }
 }

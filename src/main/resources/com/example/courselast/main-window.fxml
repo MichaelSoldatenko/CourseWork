@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-
 
 <ScrollPane fx:id="mainwindowscrollpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courselast.MainWindowController">
     <content>
@@ -44,7 +46,55 @@
                         </Button>
                     </children>
                 </AnchorPane>
-                <TableView fx:id="itemstableview" layoutX="-0.8" layoutY="102.0" prefHeight="2198.0" prefWidth="1920.0" stylesheets="@table-style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="110.0">
+                <AnchorPane prefHeight="200.0" style="-fx-background-color: #c4dfe6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">
+                    <Label layoutX="170.0" layoutY="14.0" prefHeight="24.0" prefWidth="136.0" text="Товар дня" textFill="#07575b" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="14.0">
+                        <font>
+                            <Font name="Arial Bold" size="16.0" />
+                        </font>
+                    </Label>
+                    <HBox fx:id="hboxitemoftheday" layoutX="172.0" layoutY="38.0" prefHeight="82.0" prefWidth="1221.0" style="-fx-border-color: #07575b;" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="40.0">
+                        <Label fx:id="itemnamelabel" prefHeight="47.0" prefWidth="138.0" textFill="#07575b">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin></Label>
+                        <Label fx:id="itemdescriptionlabel" prefHeight="47.0" prefWidth="646.0" textFill="#07575b">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin></Label>
+                        <Label fx:id="itempricelabel" prefHeight="47.0" prefWidth="100.0" textFill="#07575b">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin></Label>
+                        <Label fx:id="itemquantitylabel" prefHeight="47.0" prefWidth="100.0" textFill="#07575b">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin></Label>
+                        <Label fx:id="itemcategorylabel" prefHeight="47.0" prefWidth="150.0" textFill="#07575b">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin></Label>
+                        <ImageView fx:id="itemimageview" fitHeight="80.0" fitWidth="80.0">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin></ImageView>
+                    </HBox>
+                </AnchorPane>
+                <TableView fx:id="itemstableview" layoutX="-0.8" layoutY="226.4" prefHeight="1774.0" prefWidth="1920.0" stylesheets="@table-style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="226.0">
                     <columns>
                         <TableColumn fx:id="namecolumn" prefWidth="75.0" text="Назва" />
                         <TableColumn fx:id="quantitycolumn" prefWidth="75.0" text="Кількість" />

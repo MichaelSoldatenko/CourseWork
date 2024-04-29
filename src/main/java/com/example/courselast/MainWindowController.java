@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.HashMap;
 import java.util.Map;
@@ -99,9 +100,26 @@ public class MainWindowController {
     @FXML
     private TableColumn<Item, Integer> quantitycolumn;
 
-
     @FXML
     private TableColumn<Item, Image> imagecolumn;
+
+    @FXML
+    private Label itemnamelabel;
+
+    @FXML
+    private Label itemdescriptionlabel;
+
+    @FXML
+    private Label itempricelabel;
+
+    @FXML
+    private Label itemquantitylabel;
+
+    @FXML
+    private Label itemcategorylabel;
+
+    @FXML
+    private ImageView itemimageview;
 
 
     private ObservableList<Item> itemObservableList;
@@ -201,7 +219,29 @@ public class MainWindowController {
             }
         });
 
+        itemstableview.refresh();
+
         //itemstableview.getColumns().add(imagecolumn);//
+
+        Item itemOfTheDay = selectItemOfTheDay();
+        if (itemOfTheDay != null) {
+            displayItemOfTheDay(itemOfTheDay);
+        } else {
+            System.out.println("No items at the database!");
+        }
+    }
+
+    private void displayItemOfTheDay(Item itemOfTheDay) {
+        itemnamelabel.setText(itemOfTheDay.getName());
+        itemdescriptionlabel.setText(itemOfTheDay.getDescription());
+        itempricelabel.setText("Price: " + itemOfTheDay.getPrice());
+        itemquantitylabel.setText("Quantity: " + itemOfTheDay.getQuantity());
+        itemcategorylabel.setText("Category: " + itemOfTheDay.getCategory());
+
+        Image image = itemOfTheDay.getImage();
+        if (image != null) {
+            itemimageview.setImage(image);
+        }
     }
 
 
@@ -314,5 +354,21 @@ public class MainWindowController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    private Item selectItemOfTheDay() {
+        DatabaseHandler handler = new DatabaseHandler();
+        try {
+            ObservableList<Item> items = handler.getItemsList();
+            if (items.isEmpty()) {
+                return null;
+            }
+            Random random = new Random();
+            int i = random.nextInt(items.size());
+            return items.get(i);
+        } catch (SQLException | ClassNotFoundException exception) {
+            exception.printStackTrace();
+            return  null;
+        }
     }
 }
