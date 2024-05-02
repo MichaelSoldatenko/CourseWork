@@ -114,6 +114,11 @@ public class Controller {
                 stage.setHeight(screenHeight);
             }
 
+            if (window == "/com/example/courselast/main-window.fxml") {
+                stage.setTitle("Вікно Управління");
+            } else {
+                stage.setTitle("Реєстрація");
+            }
             stage.setScene(new Scene(root));
             stage.showAndWait();
         } catch (IOException e) {

@@ -155,6 +155,7 @@ public class MainWindowController {
 
             Parent root = fxmlLoader.getRoot();
             Stage stage = new Stage();
+            stage.setTitle("Авторизація");
             stage.setScene(new Scene(root));
             stage.show();
         });
@@ -174,6 +175,7 @@ public class MainWindowController {
 
             Parent root = fxmlLoader.getRoot();
             Stage stage = new Stage();
+            stage.setTitle("Додати інвентар");
             stage.setScene(new Scene(root));
             stage.show();
         });
@@ -220,8 +222,6 @@ public class MainWindowController {
         });
 
         itemstableview.refresh();
-
-        //itemstableview.getColumns().add(imagecolumn);//
 
         Item itemOfTheDay = selectItemOfTheDay();
         if (itemOfTheDay != null) {
@@ -352,6 +352,7 @@ public class MainWindowController {
 
         Parent root = fxmlLoader.getRoot();
         Stage stage = new Stage();
+        stage.setTitle("Змінити інвентар");
         stage.setScene(new Scene(root));
         stage.show();
     }

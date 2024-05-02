@@ -102,6 +102,7 @@ public class SignUpController {
 
             stage.setWidth(screenWidth);
             stage.setHeight(screenHeight);
+            stage.setTitle("Вікно Управління");
 
             stage.setScene(new Scene(root));
             stage.showAndWait();
@@ -120,6 +121,7 @@ public class SignUpController {
 
         Parent root = fxmlLoader.getRoot();
         Stage stage = new Stage();
+        stage.setTitle("Авторизація");
         stage.setScene(new Scene(root));
         stage.show();
     }
