@@ -234,9 +234,9 @@ public class MainWindowController {
     private void displayItemOfTheDay(Item itemOfTheDay) {
         itemnamelabel.setText(itemOfTheDay.getName());
         itemdescriptionlabel.setText(itemOfTheDay.getDescription());
-        itempricelabel.setText("Price: " + itemOfTheDay.getPrice());
-        itemquantitylabel.setText("Quantity: " + itemOfTheDay.getQuantity());
-        itemcategorylabel.setText("Category: " + itemOfTheDay.getCategory());
+        itempricelabel.setText("Ціна: " + itemOfTheDay.getPrice());
+        itemquantitylabel.setText("Кількість: " + itemOfTheDay.getQuantity());
+        itemcategorylabel.setText("Категорія: " + itemOfTheDay.getCategory());
 
         Image image = itemOfTheDay.getImage();
         if (image != null) {

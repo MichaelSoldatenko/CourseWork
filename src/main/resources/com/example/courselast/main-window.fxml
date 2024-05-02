@@ -52,15 +52,15 @@
                             <Font name="Arial Bold" size="16.0" />
                         </font>
                     </Label>
-                    <HBox fx:id="hboxitemoftheday" layoutX="172.0" layoutY="38.0" prefHeight="82.0" prefWidth="1221.0" style="-fx-border-color: #07575b;" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="40.0">
-                        <Label fx:id="itemnamelabel" prefHeight="47.0" prefWidth="138.0" textFill="#07575b">
+                    <HBox fx:id="hboxitemoftheday" layoutX="172.0" layoutY="38.0" prefHeight="86.0" prefWidth="1096.0" style="-fx-border-color: #07575b;" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="40.0">
+                        <Label fx:id="itemnamelabel" prefHeight="47.0" prefWidth="190.0" textFill="#07575b">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="5.0" top="15.0" />
                      </HBox.margin></Label>
-                        <Label fx:id="itemdescriptionlabel" prefHeight="47.0" prefWidth="646.0" textFill="#07575b">
+                        <Label fx:id="itemdescriptionlabel" prefHeight="47.0" prefWidth="374.0" textFill="#07575b">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -81,7 +81,7 @@
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin></Label>
-                        <Label fx:id="itemcategorylabel" prefHeight="47.0" prefWidth="150.0" textFill="#07575b">
+                        <Label fx:id="itemcategorylabel" prefHeight="47.0" prefWidth="229.0" textFill="#07575b">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -90,7 +90,7 @@
                      </HBox.margin></Label>
                         <ImageView fx:id="itemimageview" fitHeight="80.0" fitWidth="80.0">
                      <HBox.margin>
-                        <Insets right="5.0" />
+                        <Insets bottom="2.0" left="30.0" right="5.0" top="2.0" />
                      </HBox.margin></ImageView>
                     </HBox>
                 </AnchorPane>
